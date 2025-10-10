@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+
+# Data and models
+data/combined_true_fake.csv
+data/*.csv
+models/
+processed/
+*.pt
+*.bin
+
+# Logs
+logs/
+*.log
+
+# VSCode / Jupyter
+.ipynb_checkpoints/
+.vscode/
