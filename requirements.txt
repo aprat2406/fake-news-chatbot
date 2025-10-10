@@ -1,0 +1,13 @@
+torch
+transformers
+datasets
+sentence-transformers
+faiss-cpu
+fastapi
+uvicorn[standard]
+pandas
+scikit-learn
+streamlit
+langchain
+sentencepiece
+peft
