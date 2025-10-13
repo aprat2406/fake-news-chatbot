@@ -1,1 +1,5 @@
-
+Each row has:
+Column	        Description
+text	          News article or headline text
+label	          Fake/True (or dataset-specific if from TSV)
+source_file	    Original file name
