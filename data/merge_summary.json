@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "rows": 51517,
+  "fake_files": [
+    "Fake.csv",
+    "fake.csv"
+  ],
+  "true_files": [
+    "true.csv",
+    "True.csv"
+  ],
+  "tsv_files": [
+    "valid.tsv",
+    "test.tsv",
+    "train.tsv"
+  ]
+}
