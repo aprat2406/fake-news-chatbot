@@ -1,0 +1,15 @@
+Accuracy: 0.9884
+Precision (weighted): 0.9884
+Recall (weighted): 0.9884
+F1-score (weighted): 0.9884
+
+Classification Report:
+              precision    recall  f1-score   support
+
+        fake       0.99      0.98      0.98      2684
+        true       0.98      0.99      0.99      3093
+     unknown       1.00      1.00      1.00      1950
+
+    accuracy                           0.99      7727
+   macro avg       0.99      0.99      0.99      7727
+weighted avg       0.99      0.99      0.99      7727

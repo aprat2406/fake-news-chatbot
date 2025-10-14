@@ -44,7 +44,7 @@ def main():
         LOG.error(f"Processed dataset not found at {PROCESSED_DIR}. Run preprocess.py first.")
         return
 
-    ds = load_from_disk(str(PROCESSED_DIR.parent))  # root folder processed/ containing bert_dataset
+    ds = load_from_disk(str(PROCESSED_DIR))  # root folder processed/ containing bert_dataset
     LOG.info("Datasets loaded.")
 
     # load label map
@@ -59,21 +59,24 @@ def main():
 
     # TrainingArguments - tweak these if OOM or slow
     training_args = TrainingArguments(
-        output_dir=str(OUT_DIR),
-        evaluation_strategy="epoch",
-        save_strategy="epoch",
-        per_device_train_batch_size=16,   # reduce to 8 or 4 if OOM
-        per_device_eval_batch_size=32,
-        learning_rate=2e-5,
-        num_train_epochs=4,
-        weight_decay=0.01,
-        load_best_model_at_end=True,
-        metric_for_best_model="f1",
-        fp16=is_cuda_available(),  # use mixed precision if GPU available
-        logging_steps=100,
-        save_total_limit=3,
-        report_to="none",
-    )
+    output_dir=str(OUT_DIR),
+    # eval_strategy uses older transformers naming (eval_strategy instead of evaluation_strategy)
+    eval_strategy='epoch',
+    save_strategy='epoch',
+    per_device_train_batch_size=16,   # lower if OOM (8 or 4)
+    per_device_eval_batch_size=32,
+    learning_rate=2e-5,
+    num_train_epochs=4,
+    weight_decay=0.01,
+    logging_strategy='steps',
+    logging_steps=100,
+    save_total_limit=3,
+    load_best_model_at_end=True,
+    metric_for_best_model='f1',
+    fp16=is_cuda_available(),
+    report_to='none',
+)
+
 
     trainer = Trainer(
         model=model,
