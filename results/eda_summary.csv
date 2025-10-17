@@ -1,0 +1,2 @@
+total_rows,labels,label_counts,avg_text_length,median_text_length
+51517,"['fake', 'true', 'unknown']","{'true': 20826, 'fake': 17903, 'unknown': 12788}",9.249005182755207,10.0
